@@ -1,2 +1,0 @@
-web: node frontend/src/pages/index.js
-api: node backend/config/env/production/server.js
