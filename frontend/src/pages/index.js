@@ -1,11 +1,10 @@
 import * as React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-
+import Img from 'gatsby-image'
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 
-const query = graphql`
+export const query = graphql`
   query {
     allStrapiExhibitions {
       edges {
@@ -13,21 +12,30 @@ const query = graphql`
           strapiId
           title
           description
+          photo {
+            childImageSharp {
+              fixed(width:1600, height:900){
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
         }
       }
     }
   }
 `
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" />
     <StaticQuery
       query={query}
       render={data => (
         <ul>
           {data.allStrapiExhibitions.edges.map(exhibitions => (
-            <li>{exhibitions.node.title}</li>
+            <div>
+              <li>{exhibitions.node.title}</li>
+              <Img fixed={exhibitions.node.photo.childImageSharp.fixed}/>
+            </div>
           ))}
         </ul>
       )}  

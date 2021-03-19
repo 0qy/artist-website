@@ -35,6 +35,7 @@ module.exports = {
         apiURL: "http://localhost:1337",
         contentTypes: [
           "exhibitions",
+          "user",
         ],
         queryLimit: 1000,
       },
