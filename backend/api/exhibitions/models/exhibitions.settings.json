@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "exhibitions",
   "info": {
-    "name": "exhibitions"
+    "name": "exhibitions",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -16,12 +17,12 @@
     "description": {
       "type": "richtext"
     },
-    "photos": {
-      "collection": "file",
+    "photo": {
+      "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
         "files",
+        "images",
         "videos"
       ],
       "plugin": "upload",
