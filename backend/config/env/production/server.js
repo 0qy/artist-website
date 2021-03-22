@@ -1,4 +1,4 @@
 module.exports = ({ env }) => ({
-    url: env('https://qianyelin-backend.herokuapp.com/'),
+    url: env('https://qianyelin.herokuapp.com/'),
 });
   
